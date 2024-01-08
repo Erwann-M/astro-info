@@ -41,7 +41,6 @@ function success(pos) {
     console.log("Votre position actuelle est :");
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude : ${crd.longitude}`);
-    console.log(`La précision est de ${crd.accuracy} mètres.`);
     latitude = crd.latitude;
     longitude = crd.longitude;
   }
@@ -52,6 +51,8 @@ function success(pos) {
 
 const Geolocation = navigator.geolocation
 Geolocation.getCurrentPosition(success, error);
+
+console.log("latitude: " + latitude);
 
 let date = new Date().toJSON().slice(0, 10);
 
@@ -76,11 +77,17 @@ axiosMoon.post(urlMoon, {
 })
     .then(function(data) {
         const moonContainer = document.querySelector(".moon-container");
-        const moonImage = document.createElement("img")
-        moonImage.src = data.data.data.imageUrl
-        moonContainer.append(moonImage)
-        console.log(data.data.data.imageUrl);
+        const moonImage = document.createElement("img");
+        moonImage.src = data.data.data.imageUrl;
+        moonContainer.append(moonImage);
     })
     .catch(function(error) {
         console.log(error);
+    })
+
+const ApiKey = "188de08062cfcd2f05064467da11f7dd"
+weatherUrl = `api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${ApiKey}`
+axios.get(weatherUrl)
+    .then(function(data){
+        console.log(data);
     })

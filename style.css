@@ -5,6 +5,7 @@
 
 body {
     background-image: url("assets/img/stars-1654074_1920.jpg");
+    background-attachment: fixed;
 }
 
 .header-container {
@@ -58,7 +59,30 @@ body {
     width: 100%;
 }
 
+.aside {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .moon-container {
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.moon-image__title {
+    margin-bottom: 10px;
+    font-family: "nasa-font";
+    font-size: 20px;
+}
+
+.meteo-container {
     background-color: aliceblue;
     padding: 10px;
     border-radius: 5px;
@@ -67,7 +91,7 @@ body {
     flex-direction: column;
 }
 
-.moon-image__title {
+.meteo__title {
     margin-bottom: 10px;
     font-family: "nasa-font";
     font-size: 20px;
@@ -84,7 +108,8 @@ body {
         margin-right: 10px;
     }
 
-    .moon-container {
+    .aside {
         width: 20%;
+        margin-left: 10px;
     }
 }
